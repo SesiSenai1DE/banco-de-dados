@@ -328,16 +328,24 @@ SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segu
 ![Relatório 10](resultados_alunos/relatorio10.jpg)
 
 <!-- _________________________ -->
-### 11) Faça uma consulta que altere o nome do curso de Figma para Adobe XD e sua carga horária de 10 para 15.
-```sql
+### 11) Faça uma consulta que altere o nome 
+### do curso de Figma para Adobe XD 
+### e sua carga horária de 10 para 15.
+UPDATE cursos 
+SET titulo = 'AdobeXD', 
+carga_horaria = 15
+WHERE id = 4;
 
 -- 15ª Digitação (SQL para criar a consulta acima)
 
-```
+
 ![Relatório 11](resultados_alunos/relatorio11.jpg)
 
 <!-- _________________________ -->
-### 12) Faça uma consulta que exclua um aluno do curso de Redes de Computadores e um aluno do curso de UX/UI.
+### 12) Faça uma consulta que 
+### exclua um aluno do curso de 
+### Redes de Computadores 
+### e um aluno do curso de UX/UI.
 ```sql
 
 -- Excluindo um aluno do curso de Redes de Computadores
@@ -349,11 +357,17 @@ DELETE FROM alunos WHERE nome = 'Mário Calore' AND curso_id = 3;
 ```
 ![Relatório 12](resultados_alunos/relatorio12.jpg)
 <!-- _________________________ -->
-### 13) Faça uma consulta que mostre a lista de alunos atualizada e o título dos cursos que fazem, classificados pelo nome do aluno.
+### 13) Faça uma consulta que mostre 
+### a lista de alunos atualizada 
+### e o título dos cursos que fazem, 
+### classificados pelo nome do aluno.
 ```sql
 
 -- 17ª Digitação (SQL para criar a consulta acima)
-
+SELECT alunos.nome,cursos.titulo
+FROM alunos
+INNER JOIN cursos ON alunos.curso_id = cursos.id
+ORDER BY alunos.nome;
 ```
 ![Relatório 13](resultados_alunos/relatorio13.jpg)
 <!-- _________________________ -->
